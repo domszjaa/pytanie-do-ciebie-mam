@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Spacer?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fefefe;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .gif {
+            width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            position: relative;
+            width: 400px;
+            height: 150px;
+        }
+
+        button {
+            font-size: 32px;
+            padding: 15px 40px;
+            cursor: pointer;
+        }
+
+        #yes {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+
+        #no {
+            position: absolute;
+            background: transparent;
+            border: none;
+            font-size: 32px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Idziemy na spacer?</h1>
+
+    <img 
+        class="gif" 
+        src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" 
+        alt="Podekscytowane dziecko"
+    >
+
+    <div class="buttons">
+        <button id="yes" onclick="alert('No to idziemy! 🥰')">TAK</button>
+        <button id="no">NIE</button>
+    </div>
+
+    <script>
+        const noButton = document.getElementById("no");
+        const container = document.querySelector(".buttons");
+
+        noButton.addEventListener("mouseover", () => {
+            const maxX = container.clientWidth - noButton.offsetWidth;
+            const maxY = container.clientHeight - noButton.offsetHeight;
+
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+
+            noButton.style.left = x + "px";
+            noButton.style.top = y + "px";
+        });
+    </script>
+
+</body>
+</html>
